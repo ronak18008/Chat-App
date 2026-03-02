@@ -80,4 +80,29 @@ export const Logout = (req, res) => {
 };
 
 
-export const updateProfile = async(req,res) => {};
+export const updateProfile = async (req, res) => {
+    try {
+        const { fullName, profilePicture } = req.body;
+
+        // req.user should be set by protectRoute middleware
+        if (!req.user) {
+            return res.status(401).json({ message: "Unauthorized" });
+        }
+
+        // update fields if provided
+        if (fullName) req.user.fullName = fullName;
+        if (profilePicture) req.user.profilePicture = profilePicture;
+
+        await req.user.save();
+
+        res.status(200).json({
+            _id: req.user._id,
+            fullName: req.user.fullName,
+            email: req.user.email,
+            profilePicture: req.user.profilePicture,
+        });
+    } catch (error) {
+        console.log("Error in updateProfile controller:", error.message);
+        res.status(500).json({ message: "Internal server error" });
+    }
+};
