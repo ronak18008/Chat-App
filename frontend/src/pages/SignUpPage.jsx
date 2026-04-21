@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useAuthStore } from "../store/useAuthStore";
+import { MessageSquare, User } from "lucide-react";
 
 const SignUpPage = () => {
     const [showPassword, setShowPassword] = useState(false);
@@ -11,7 +13,7 @@ const SignUpPage = () => {
     const { signup, isSigningUp } = useAuthStore();
 
     const validateForm = () => {};
-    const handaleSubmit = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
     };
 
@@ -31,7 +33,7 @@ const SignUpPage = () => {
                         </div>
                     </div>
 
-                    <form onSubmit={handaleSubmit} className="space-y-6">
+                    <form onSubmit={handleSubmit} className="space-y-6">
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text font-medium">Full Name</span>

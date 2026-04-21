@@ -1,18 +1,23 @@
 import { Routes, Route, Navigate } from "react-router-dom";
-import  SignUppage from "./pages/SignUpPage";
+import SignUpPage from "./pages/SignUpPage";
 import LoginPage from "./pages/LoginPage";
 import ProfilePage from "./pages/ProfilePage";
 import Settings from "./pages/Settings";
 import HomePage from "./pages/HomePage";
+import { Loader } from "lucide-react";
+import { useEffect } from "react";
 
 // assume you are getting authUser from context or state
 import { useAuthStore } from "./store/useAuthStore";
 
 function App() {
-  const { authUser } = useAuthStore();
+  const { authUser, isCheckingAuth, checkAuth } = useAuthStore();
 
-  if(isCheckingAuth && !authUser) return (
+  useEffect(() => {
+    checkAuth();
+  }, [checkAuth]);
 
+  if (isCheckingAuth) return (
     <div className="flex items-center justify-center h-screen">
       <Loader className="size-10 animate-spin" />
     </div>
@@ -31,7 +36,7 @@ function App() {
         {/* Signup */}
         <Route
           path="/signup"
-          element={!authUser ? <SignupPage /> : <Navigate to="/" />}
+          element={!authUser ? <SignUpPage /> : <Navigate to="/" />}
         />
 
         {/* Login */}
