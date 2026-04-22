@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useAuthStore } from "../store/useAuthStore";
-import { Loader2, MessageSquare, User } from "lucide-react";
+import { Link2, Loader2, MessageSquare, User } from "lucide-react";
 
 const SignUpPage = () => {
     const [showPassword, setShowPassword] = useState(false);
@@ -110,14 +110,17 @@ const SignUpPage = () => {
                     </form>
 
                     <div className="text-center">
-                        <p className="text-base-content/60"
-                        Already have an account? {" "}
-                        <Link to="/login" className="link link-primary">
-                            Sign in
+                        <p className="text-base-content/60">
+                            Already have an account? {" "}
+                            <Link to="/login" className="link link-primary">
+                                Sign in
                             </Link>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
     );
 };
+
 export default SignUpPage;
