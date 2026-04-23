@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { useAuthStore } from "../store/useAuthStore";
 import { Link2, Loader2, MessageSquare, User } from "lucide-react";
+import { Link } from "react-router-dom";
+
+import { AuthImagePattern } from "../components/AuthImagePattern";
 
 const SignUpPage = () => {
     const [showPassword, setShowPassword] = useState(false);
@@ -119,6 +122,16 @@ const SignUpPage = () => {
                     </div>
                 </div>
             </div>
+
+        {/* right side */}
+
+        <AuthImagePattern
+           title="Join our community"
+           subtitle="Connect with freinds, share moments, and stay in touch with your loved ones."
+
+        />
+
+
         </div>
     );
 };
