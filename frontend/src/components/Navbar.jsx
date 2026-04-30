@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useAuthStore } from "../store/useAuthStore";
 
 const Navbar = () => {
@@ -19,3 +20,9 @@ const Navbar = () => {
     );
 };
 export default Navbar;
+=======
+const Navbar = () => {
+    return <div>Navbar</div>;
+};
+export default Navbar;
+>>>>>>> 1cd6977db022cba0cb00637bb2aafa1e5639a0cf

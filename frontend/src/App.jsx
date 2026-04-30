@@ -38,7 +38,11 @@ function App() {
         {/* Signup */}
         <Route
           path="/signup"
+<<<<<<< HEAD
           element={!authUser ? <SignUpPage /> : <Navigate to="/login" />}
+=======
+          element={!authUser ? <SignUpPage /> : <Navigate to="/" />}
+>>>>>>> 1cd6977db022cba0cb00637bb2aafa1e5639a0cf
         />
 
         {/* Login */}
